@@ -21,6 +21,7 @@
         <button id="filter-hovedretter">hovedretter</button>
         <button id="filter-desserter">dessert</button>
         <button id="filter-drikkevarer">drikkevarer</button>
+        <button id="filter-sideorders">sideorders</button>
     </div>
     <main>
 
@@ -85,6 +86,7 @@
             let hovedretter = retter.filter(hverEnkeltFuckingRet => hverEnkeltFuckingRet.kategori == "hovedretter");
             let desserter = retter.filter(hverEnkeltFuckingRet => hverEnkeltFuckingRet.kategori == "desserter");
             let drikkevarer = retter.filter(hverEnkeltFuckingRet => hverEnkeltFuckingRet.kategori == "drikkevarer");
+            let sideorders = retter.filter(hverEnkeltFuckingRet => hverEnkeltFuckingRet.kategori == "sideorders");
 
 
             //Kalder visRetter med de nye arrays (foretter, hovedretter, etc)             
@@ -106,6 +108,10 @@
 
             document.querySelector("#filter-drikkevarer").addEventListener("click", () => {
                 visRetter(drikkevarer, "Drikkevarer");
+            });
+
+            document.querySelector("#filter-sideorders").addEventListener("click", () => {
+                visRetter(sideorders, "Sideorders");
             });
 
         };
