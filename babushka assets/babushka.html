@@ -19,11 +19,12 @@
         <button id="filter-alle">alle retter</button>
         <button id="filter-forretter">forretter</button>
         <button id="filter-hovedretter">hovedretter</button>
-        <button id="filter-desserter">desssert</button>
-        <button id="filter-drikkevarer">drikkevarer</button></div>
+        <button id="filter-desserter">dessert</button>
+        <button id="filter-drikkevarer">drikkevarer</button>
+    </div>
     <main>
 
-        <h1 id="overskrift">MENU</h1>
+        <h1 id="overskrift">Menu</h1>
         <section class="retContainer"></section>
 
     </main>
@@ -44,26 +45,26 @@
     </footer>
 
     <script>
-        //        let forretter = retter.filter(hverEnkeltFuckingRet => hverEnkeltFuckingRet.kategori == "foretter");
-        //        let forretter = retter.filter(hverEnkeltFuckingRet => hverEnkeltFuckingRet.kategori == "hovedretter");
-        //        let forretter = retter.filter(hverEnkeltFuckingRet => hverEnkeltFuckingRet.kategori == "desserter");
-        //        let forretter = retter.filter(hverEnkeltFuckingRet => hverEnkeltFuckingRet.kategori == "drikkevarer");
-        //        let forretter = retter.filter(hverEnkeltFuckingRet => hverEnkeltFuckingRet.kategori == "alle");
-
         let retter = [];
 
         document.addEventListener("DOMContentLoaded", hentJson);
+
         async function hentJson() {
             let jsonData = await fetch("json/menu.json");
             retter = await jsonData.json();
-            visRetter();
+            visRetter(retter, "Menu");
+            lavFiltre();
         };
 
 
-        function visRetter() {
+        function visRetter(retter, overskrift) {
 
             let dest = document.querySelector(".retContainer");
             let temp = document.querySelector(".retTemplate");
+
+            dest.innerHTML = "";
+
+            document.querySelector("#overskrift").textContent = overskrift;
 
             retter.forEach(hverEnkeltFuckingRet => {
                 let klon = temp.cloneNode(true).content;
@@ -76,27 +77,38 @@
             });
         };
 
-        //        document.querySelector("#filter-alle").addEventListener("click", () => {
-        //            visRetter(retter);
-        //        })
-        //
-        //        document.querySelector("#filter-foretter").addEventListener("click", () => {
-        //            visRetter(forretter);
-        //        })
-        //
-        //        document.querySelector("#filter-hovedretter").addEventListener("click", () => {
-        //            visRetter(hovedretter);
-        //        })
-        //
-        //        document.querySelector("#filter-desserter").addEventListener("click", () => {
-        //            visRetter(desserter);
-        //        })
-        //
-        //        document.querySelector("#filter-drikkevarer").addEventListener("click", () => {
-        //            visRetter(drikkevarer);
-        //        })
-        //        
-        //
+
+        function lavFiltre() {
+
+            //find events/variabler der indeholder de valgte kategorier
+            let forretter = retter.filter(hverEnkeltFuckingRet => hverEnkeltFuckingRet.kategori == "forretter");
+            let hovedretter = retter.filter(hverEnkeltFuckingRet => hverEnkeltFuckingRet.kategori == "hovedretter");
+            let desserter = retter.filter(hverEnkeltFuckingRet => hverEnkeltFuckingRet.kategori == "desserter");
+            let drikkevarer = retter.filter(hverEnkeltFuckingRet => hverEnkeltFuckingRet.kategori == "drikkevarer");
+
+
+            //Kalder visRetter med de nye arrays (foretter, hovedretter, etc)             
+            document.querySelector("#filter-alle").addEventListener("click", () => {
+                visRetter(retter, "Menu");
+            });
+
+            document.querySelector("#filter-forretter").addEventListener("click", () => {
+                visRetter(forretter, "Forretter");
+            });
+
+            document.querySelector("#filter-hovedretter").addEventListener("click", () => {
+                visRetter(hovedretter, "Hovedretter");
+            });
+
+            document.querySelector("#filter-desserter").addEventListener("click", () => {
+                visRetter(desserter, "Desserter");
+            });
+
+            document.querySelector("#filter-drikkevarer").addEventListener("click", () => {
+                visRetter(drikkevarer, "Drikkevarer");
+            });
+
+        };
     </script>
 </body>
 

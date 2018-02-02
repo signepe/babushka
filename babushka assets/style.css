@@ -45,9 +45,9 @@ header {
 #overskrift {
     grid-column: 1/4;
     border: solid 1px;
+    height: 50px;
+    color: black;
 }
-
-
 
 footer {
     height: 120px;
