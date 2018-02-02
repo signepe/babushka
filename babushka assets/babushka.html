@@ -11,16 +11,22 @@
 
 <body>
 
-    <section class="retContainer">
+    <main>
 
-        <div id="splash">SPLASH-BILLEDE</div>
-        <div class="buttons"><button>alle retter</button>
-            <button>forretter</button>
-            <button>hovedretter</button>
-            <button>desssert</button>
-            <button>drikkevarer</button></div>
-    </section>
+        <section class="retContainer">
 
+            <div id="splash">SPLASH-BILLEDE</div>
+            <h1 id="overskrift">MENU</h1>
+            <div class="buttons"><button>alle retter</button>
+                <button>forretter</button>
+                <button>hovedretter</button>
+                <button>desssert</button>
+                <button>drikkevarer</button></div>
+        </section>
+    </main>
+
+    <div class="liste">
+    </div>
 
     <template class="retTemplate">
         <article class="ret">
@@ -30,10 +36,12 @@
         <p>Pris: <span class="pris"></span>,-</p>   
     </article>
     </template>
-
-    <div class="liste">
-    </div>
-
+    <footer>
+        <section>
+            <address>Adresse: <br>Grønnegade 97<br>1234 København K</address>
+            <aside>Åbningstider: <br>Mandag - fredag 10:30 - 22:00<br>Lørdag 12:00 - 23:00</aside>
+        </section>
+    </footer>
 
     <script>
         let retter = [];
