@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Babushka Bistro</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <section class="retContainer">
+
+        <div id="splash">SPLASH-BILLEDE</div>
+        <div class="buttons"><button>alle retter</button>
+            <button>forretter</button>
+            <button>hovedretter</button>
+            <button>desssert</button>
+            <button>drikkevarer</button></div>
+    </section>
+
+
+    <template class="retTemplate">
+        <article class="ret">
+            <h2 class="overskrift"></h2>
+             <img class="billede" src="" alt="">
+        <p class="kortbeskrivelse"></p>
+        <p>Pris: <span class="pris"></span>,-</p>   
+    </article>
+    </template>
+
+    <div class="liste">
+    </div>
+
+
+    <script>
+        let retter = [];
+
+        document.addEventListener("DOMContentLoaded", hentJson);
+        async function hentJson() {
+            let jsonData = await fetch("json/menu.json");
+            retter = await jsonData.json();
+            visRetter();
+        };
+
+
+        function visRetter() {
+
+            let dest = document.querySelector(".retContainer");
+            let temp = document.querySelector(".retTemplate");
+
+            retter.forEach(hverEnkeltFuckingRet => {
+                let klon = temp.cloneNode(true).content;
+                klon.querySelector(".overskrift").textContent = hverEnkeltFuckingRet.navn;
+                klon.querySelector(".billede").src = "imgs/small/" + hverEnkeltFuckingRet.billede + "-sm.jpg";
+                klon.querySelector(".billede").alt = "Billede af" + hverEnkeltFuckingRet.navn;
+                klon.querySelector(".kortbeskrivelse").textContent = hverEnkeltFuckingRet.kortbeskrivelse;
+                klon.querySelector(".pris").textContent = hverEnkeltFuckingRet.pris;
+                dest.appendChild(klon);
+            });
+        };
+    </script>
+</body>
+
+</html>
