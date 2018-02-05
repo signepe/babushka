@@ -11,6 +11,20 @@
 
 <body>
 
+    <div id="popup">
+        <div class="popupcontent">
+            <button class="close">Close</button>
+            <h2 class="titel"></h2>
+            <img class="single-img" src="" alt="">
+            <details open>
+                <summary>Beskrivelse</summary>
+                <p class="langbeskrivelse"></p>
+                <p>Pris: <span class="pris"></span>,-</p>
+            </details>
+
+        </div>
+    </div>
+
     <header>
         <h1>Bistro Babushka</h1>
     </header>
@@ -74,9 +88,34 @@
                 klon.querySelector(".billede").alt = "Billede af" + hverEnkeltFuckingRet.navn;
                 klon.querySelector(".kortbeskrivelse").textContent = hverEnkeltFuckingRet.kortbeskrivelse;
                 klon.querySelector(".pris").textContent = hverEnkeltFuckingRet.pris;
+                klon.querySelector(".ret").setAttribute("data-id", hverEnkeltFuckingRet.id);
+                klon.querySelector(".ret").addEventListener("click", openModal);
                 dest.appendChild(klon);
             });
         };
+
+        function openModal() {
+            let myId = this.getAttribute("data-id");
+            let single = retter.find(hverEnkeltFuckingRet => {
+                //Hvis vores myId = ret.id så skal den vise indhold
+                if (myId == hverEnkeltFuckingRet.id) {
+                    document.querySelector("#popup").style.visibility = "visible";
+                    document.querySelector(".titel").textContent = hverEnkeltFuckingRet.navn;
+                    document.querySelector(".langbeskrivelse").textContent = hverEnkeltFuckingRet.langbeskrivelse;
+                    document.querySelector(".single-img").src = "imgs/medium/" + hverEnkeltFuckingRet.billede + "-md.jpg";
+                    document.querySelector(".single-img").alt = "Billede af" + hverEnkeltFuckingRet.navn;
+                    document.querySelector(".pris").textContent = hverEnkeltFuckingRet.pris;
+                    document.querySelector(".close").addEventListener("click", closeModal);
+                    console.log(myId);
+                };
+            });
+
+        };
+
+        function closeModal() {
+            document.querySelector("#popup").style.visibility = "hidden";
+        }
+
 
 
         function lavFiltre() {

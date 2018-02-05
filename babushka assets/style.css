@@ -1,15 +1,20 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
 .retContainer {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 10px;
     max-width: 800px;
     margin: 0 auto;
-    border: solid;
 }
 
 .ret {
     width: 250px;
-    border: solid 1px red;
+    cursor: pointer;
+    margin: 10px 0 10px 0;
 }
 
 .ret:nth-child(odd) {
@@ -17,23 +22,21 @@
 }
 
 .ret:nth-child(even) {
-    background-color: beige;
+    background-color: antiquewhite;
 }
 
 .ret img {
-    width: 250px;
+    width: 100%;
 }
 
 header {
     height: 300px;
-    border: solid 1px;
     text-align: center;
     background-color: aliceblue;
 }
 
 .buttons {
     grid-template-columns: 1/4;
-    border: solid 1px;
     text-align: center;
 }
 
@@ -45,7 +48,7 @@ header {
 
 #overskrift {
     grid-column: 1/4;
-    border: solid 1px;
+
     height: 50px;
     color: black;
     text-align: center;
@@ -53,11 +56,33 @@ header {
 
 footer {
     height: 120px;
-    border: solid 1px;
     max-width: 800px;
     margin: 0 auto;
 }
 
 button {
+    cursor: pointer;
 
 }
+
+#popup {
+    width: 100vw;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    visibility: hidden;
+}
+
+.popupcontent {
+
+    background-color: white;
+    width: 60vw;
+    height: 57vw;
+    margin: 0 auto;
+}
+
+.single-img {
+    width: 100%;
+}
+
+.popupret {}
