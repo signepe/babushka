@@ -7,14 +7,13 @@
 .retContainer {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    max-width: 800px;
+    width: 80vw;
+    grid-gap: 20px;
     margin: 0 auto;
 }
 
 .ret {
-    width: 250px;
     cursor: pointer;
-    margin: 10px 0 10px 0;
 }
 
 .ret:nth-child(odd) {
@@ -78,11 +77,37 @@ button {
     background-color: white;
     width: 60vw;
     height: 57vw;
-    margin: 0 auto;
+    margin: 70px auto;
+    padding: 20px;
+
 }
 
 .single-img {
     width: 100%;
 }
 
-.popupret {}
+
+@media screen and (max-width:800px) {
+
+    .retContainer {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+
+}
+
+@media screen and (max-width:630px) {
+
+    .retContainer {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media screen and (max-width:550px) {
+
+    .retContainer {
+        grid-template-columns: 1fr;
+    }
+
+}
