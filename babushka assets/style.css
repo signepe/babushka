@@ -55,7 +55,7 @@ header {
 
 footer {
     height: 120px;
-    max-width: 800px;
+    width: 80vw;
     margin: 0 auto;
 }
 
@@ -70,15 +70,19 @@ button {
     background-color: rgba(0, 0, 0, 0.8);
     position: fixed;
     visibility: hidden;
+
 }
 
 .popupcontent {
 
     background-color: white;
     width: 60vw;
-    height: 57vw;
-    margin: 70px auto;
+    height: auto;
     padding: 20px;
+    position: static;
+    text-align: center;
+    margin: 40px auto;
+
 
 }
 
@@ -86,6 +90,17 @@ button {
     width: 100%;
 }
 
+
+@media screen and (min-width:801px) {
+
+    .single-img {
+
+        width: 60vw;
+
+    }
+
+
+}
 
 @media screen and (max-width:800px) {
 
